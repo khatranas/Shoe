@@ -6,7 +6,6 @@
   align-items: center;
   font-size: 14px;
   font-weight: 500;
-
   &_logo {
     font-family: "Anton", serif;
     font-style: normal;
@@ -15,8 +14,8 @@
   }
   &_list {
     display: flex;
-    gap: 60px;
-    font-weight: 700;
+    gap: 40px;
+    font-weight: 600;
     font-size: 14px;
     &_item {
       text-decoration: none;
@@ -29,38 +28,26 @@
     color: #000;
     margin-left: 7%;
     font-weight: 600;
-    position: relative;
-    &-link {
-      display: flex;
-      justify-content: space-between;
-    }
     &_line {
       border: 1px solid rgba(255, 255, 255, 0.38);
       transform: rotate(90deg);
-    }
-    &-search {
-      position: absolute;
-      top: 46px;
-      right: 50px;
     }
     &_a1 {
       text-decoration-line: underline;
       color: #000000;
     }
-
+    &_img1 {
+      margin-right: -27%;
+    }
     &_a {
       text-decoration: none;
       color: #000;
       margin-right: 40px;
-      margin-left: 15px;
     }
     &_img {
       margin-left: 24px;
     }
   }
-}
-a {
-  text-decoration: none;
 }
 // pc
 @media only screen and (min-width: 64em) {

@@ -15,12 +15,12 @@ export default function RecentPost() {
 
   return (
     <div className="recent">
-      <div className="recent_header">
+      {/* <div className="recent_header">
         <p className="recent_header_p">Search</p>
         <button className="recent_header_btn">
           Title... <button className="recent_header_btn_2">Search</button>
         </button>
-      </div>
+      </div> */}
       <div className="recent_post">
         <p className="recent_post_border"></p>
         <p className="recent_post_p">Category</p>
@@ -53,7 +53,7 @@ export default function RecentPost() {
         {data?.map((item, index) => (
           <div key={index} className="recent_item_index">
             <div className="recent_item_index_img">
-              <img src={item.productDetails.productImage} />
+              <img src={item.productDetails.productImage} alt="" />
             </div>
             <div className="recent_item_index_des">
               {item.productDetails.description}

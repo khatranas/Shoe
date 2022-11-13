@@ -11,6 +11,18 @@
       font-family: "Anton", sans-serif;
     }
     .Favourite__item {
+      width: 80%;
+      .item{
+        .item__card{
+          display: flex;
+          justify-content: space-between;
+        }
+        
+       p{
+        float: left;
+       }   
+        
+      }
       margin-top: 64px;
       .Favourite__content {
         display: flex;
@@ -24,4 +36,8 @@
       }
     }
   }
+}
+@media (max-width: 740px) {
+  .Favourite .container .Favourite__item {
+    display: contents;}
 }

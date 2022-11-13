@@ -33,18 +33,20 @@
 
   &__product {
     display: flex;
+    flex-direction: column;
+    &-item {
+      text-decoration: none;
+    }
+
     &-sort {
+      margin-left: auto;
       margin-bottom: 40px;
-      margin-left: 92%;
+      display: flex;
+
       &-name {
-        display: block;
-        position: relative;
-        font-size: 15px;
+        margin-right: 12px;
+        font-size: 12px;
         font-weight: 500;
-        display: flex;
-        &_p {
-          margin-left: 10px;
-        }
       }
     }
 
@@ -72,6 +74,7 @@
       &-name {
         font-size: 1.1rem;
         font-weight: 800;
+        color: #333;
       }
 
       &-price {
@@ -80,43 +83,4 @@
       }
     }
   }
-}
-.Shop__product-sort-name:hover .Menu_ul {
-  display: block;
-}
-
-.Shop__product-sort-name:hover .img {
-  display: none;
-}
-.img {
-  margin-left: 10px;
-}
-.a:hover {
-  color: red;
-}
-.Menu_ul {
-  display: none;
-  font-family: "$font-plus";
-  margin-top: 18px;
-  position: absolute;
-  width: 147px;
-  height: auto;
-  border-radius: 4px;
-  background: #fff;
-  box-shadow: 0px 4px 28px rgba(7, 20, 31, 0.06);
-  &_li {
-    margin: 15px 10px;
-    font-weight: 500;
-    font-size: 14px;
-
-    &_a {
-      color: #100d22;
-      text-decoration: none;
-      padding: 15px 10px;
-    }
-  }
-}
-.Menu_ul_li_a:hover {
-  color: rgb(141, 18, 18);
-  font-weight: 600;
 }
