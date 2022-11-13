@@ -1,25 +1,25 @@
 import React from "react";
 import "../../scss/component/Des/Banner.scss";
 import star from "../../assets/img/star.png";
-import down from "../../assets/img/down.png";
 import tym from "../../assets/img/tym.jpg";
 import { useParams } from "react-router-dom";
 import axiosApi from "../../api/axios";
+import Description from "./Description";
 export default function BannerDes() {
   const [data, setData] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
   const param = useParams()
 
-  
+
 
   React.useEffect(() => {
     const getApi = async () => {
       setLoading(true)
       await axiosApi.get(
-        `/DetailProductDescription/GetByLocal?ProductName=${param.name}`)
-      .then((res) => setData(res)).catch(err => console.log(err.message));
+        `/DetailProductDescription/GetByLocal?ProductId=${param.name}`)
+        .then((res) => setData(res)).catch(err => console.log(err.message));
       setLoading(false)
-  };
+    };
     getApi()
   }, [param.name]);
 
@@ -27,7 +27,7 @@ export default function BannerDes() {
 
   return (
     <div>
-      {loading ? <h1>loading .........</h1> : (<>{data?.map((item, index) => (
+      {loading ? <h1>Loading .........</h1> : (<>{data?.map((item, index) => (
         <div key={index} className="Banner flex-mobile">
           <div className="Banner_img">
             <img className="Banner_img-item" src={item.productDetails.productImage} alt='' />
@@ -54,16 +54,25 @@ export default function BannerDes() {
               <p className="Banner_header_des_p"></p>
               {item.productDetails.description}
             </div>
-            <p className="Banner_header_p1">See Details</p>
+            <a href="#Des" className="Banner_header_p1">See Details</a>
             <div className="Banner_header_btn">
-              <button className="Banner_header_btn_button">
-                <p className="Banner_header_btn_button_p">QNT</p>
-                <img className="Banner_header_btn_button_img" src={down} alt='' />
-              </button>
-              <button className="Banner_header_btn_button">
-                <p className="Banner_header_btn_button_p">SIZE</p>
-                <img className="Banner_header_btn_button_img" src={down} alt='' />
-              </button>
+              <select id="cars">
+                <option defaultValue="">QNT</option>
+                <option defaultValue="1">1</option>
+                <option defaultValue="2">2</option>
+                <option defaultValue="3">3</option>
+                <option defaultValue="4">4</option>
+                <option defaultValue="5">5</option>
+              </select>
+              <select id="cars">
+                <option defaultValue="">Size</option>
+                <option defaultValue="1">34</option>
+                <option defaultValue="2">35</option>
+                <option defaultValue="3">36</option>
+                <option defaultValue="4">37</option>
+                <option defaultValue="5">38</option>
+                <option defaultValue="5">39</option>
+              </select>
             </div>
             <div className="Banner_header_button34">
               <button className="Banner_header_button34_3" onClick={() => console.log(item)}>Add to Bag</button>
@@ -76,6 +85,10 @@ export default function BannerDes() {
         </div>
       ))}
       </>)}
+      
+      <div id="Des">
+        <Description />
+      </div>
 
     </div>
   );

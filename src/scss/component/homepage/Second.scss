@@ -13,6 +13,7 @@
   text-align: center;
 
   .container {
+    width: 80%;
     .Second__item {
       display: flex;
       justify-content: space-between;
@@ -22,4 +23,19 @@
       }
     }
   }
+}
+.Brain__name{
+  float: left;
+}
+@media (max-width: 740px) {
+.Second__item{
+  display: contents;
+}
+.Second .container .Second__item{
+  display: contents;
+}
+.img{
+  width: 327px;
+  height: 266px;
+}
 }

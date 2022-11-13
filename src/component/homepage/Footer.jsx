@@ -1,12 +1,10 @@
 import "../../scss/component/homepage/Footer.scss";
-import React, { useState } from "react";
+import React from "react";
 import Call from "../../assets/img/call.png";
 import Face from "../../assets/img/face.png";
 import IG from "../../assets/img/IG.png";
 import { Link, NavLink } from "react-router-dom";
 export default function Footer() {
-  // const [Btn, getBtn] = React.useState("");
-  // console.log(Btn);
   return (
     <div>
       <div className=" footer flex-mobile ">
@@ -14,25 +12,19 @@ export default function Footer() {
           <div className="footer_container_content ">
             <h2 className="footer_container_content_header1 ">Shoppes</h2>
             <p className="footer_container_content_text1 ">Address</p>
-            <Link to="" className="footer_container_content_text">
-              2118 Thornridge Cir. Syracuse, Connecticut 35624
-            </Link>
-            <p className="footer_container_content_text1 ">Email</p>
-            <Link to="" className="footer_container_content_text">
-              Shoppes@example.com{" "}
-            </Link>
-            <p className="footer_container_content_text1 ">Phone Number</p>
-            <Link to="" className="footer_container_content_text">
-              +321 4356 2212{" "}
-            </Link>
+            <p>
+              <Link to="" className="footer_container_content_text">
+                2118 Thornridge Cir. Syracuse, Connecticut 35624
+              </Link>
+              </p>
           </div>
           <div className="footer_container_content ">
             <h3 className="footer_container_content_header">Menu</h3>
             <p>
-              <NavLink to="/">Home </NavLink>
+            <NavLink to="/">Home </NavLink>
             </p>
             <p>
-              <NavLink to="/AllProduct">Shop </NavLink>
+            <NavLink to="/AllProduct">Shop </NavLink>
             </p>
             <p>
               <Link to="" className="footer_container_content_text ">
@@ -45,16 +37,16 @@ export default function Footer() {
               </Link>
             </p>
             <p>
-              <NavLink to="/Blog">Blog </NavLink>
+            <NavLink to="/Blog">Blog </NavLink>
             </p>
           </div>
           <div className="footer_container_content">
             <h3 className="footer_container_content_header ">Quick Links</h3>
             <p>
-              <NavLink to="/login">Login </NavLink>
+            <NavLink to="/login">Login </NavLink>
             </p>
             <p>
-              <NavLink to="/a">Register </NavLink>
+            <NavLink to="/a">Register </NavLink>
             </p>
             <p>
               <Link to="" className="footer_container_content_text ">
@@ -67,12 +59,12 @@ export default function Footer() {
               Let's Stay in Touch
             </h3>
             <p className="footer_container_content_text ">
-              {/* btn footer */}
-              {/* <input
-                className="Content_from_content_input "
-                value="Enter Your Email Address"
-                type="text"
-              ><button></button></input> */}
+              {/* <button className="footer_container_content_text_btn1">
+                Enter Your Email Address
+                <button className="footer_container_content_text_btn1_btn2">
+                  Subscribe
+                </button>
+              </button> */}
             </p>
             <p className="footer_container_content_text2 ">Follow our Social</p>
             <div className="footer_container_content_list ">

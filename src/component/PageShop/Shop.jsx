@@ -1,30 +1,34 @@
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "../../scss/component/PageShop/responsive.css";
-import down from "../../../src/assets/img/down.png";
+import Arrow from "../../assets/font/Arrow.js";
 import RangePrice from "./RangePrice";
 import "../../scss/component/PageShop/Shop.scss";
 import axiosApi from "../../api/axios";
 export default function Shop() {
   const [data, setData] = React.useState([]);
-  const param = useParams();
-  const navigate = useNavigate();
+  const param = useParams()
+  const [page, setPage] = React.useState(1)
+  const navigate = useNavigate()
+
 
   React.useEffect(() => {
-    if (param.search) {
+    if (param.id) {
       const getApi = async () => {
         axiosApi
-          .get(`Products/AllProductInUser?search=${param.search}`)
+          .get(`Products/AllProductInUser?search=${param.id}`)
           .then((res) => setData(res));
       };
       getApi();
     } else {
       const getApi = async () => {
-        axiosApi.get("Products/AllProductInUser").then((res) => setData(res));
+        axiosApi
+          .get(`Products/AllProductInUser?page=${page}`)
+          .then((res) => setData(res));
       };
       getApi();
     }
-  }, [param.search, navigate]);
+  }, [param.id, navigate, page]);
 
   return (
     <div className="Shop">
@@ -54,37 +58,14 @@ export default function Shop() {
           </div>
           <div className="col l-9 m-12 c-12 Shop__product">
             <div className="Shop__product-sort">
-              <div className="Shop__product-sort-name">
-                Sort by <img className="img" src={down} alt="" />
-                <ul className="Menu_ul">
-                  <li className="Menu_ul_li">
-                    <a className="Menu_ul_li_a" href="">
-                      Featured
-                    </a>
-                  </li>
-                  <li className="Menu_ul_li">
-                    <a className="Menu_ul_li_a" href="">
-                      Newest
-                    </a>
-                  </li>
-                  <li className="Menu_ul_li">
-                    <a className="Menu_ul_li_a" href="">
-                      Price High - Low
-                    </a>
-                  </li>
-                  <li className="Menu_ul_li">
-                    <a className="Menu_ul_li_a" href="">
-                      Price Low - High
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <span className="Shop__product-sort-name">Sort by</span>
+              <Arrow />
             </div>
             <div className="row Shop__product-wrapper">
               {data.map((item, index) => {
                 return (
                   <Link
-                    to={`/DetailWriteReview/${item.productName}`}
+                    to={`/DetailWriteReview/${item.id}`}
                     key={index}
                     className="col l-4 m-6 c-12 Shop__product-item"
                   >
@@ -108,9 +89,12 @@ export default function Shop() {
                 );
               })}
             </div>
-          </div>
+           </div>
         </div>
       </div>
+      <button onClick={() => setPage(1)}> page 1</button>
+      <button onClick={() => setPage(2)}> page 2</button>
+
     </div>
   );
 }

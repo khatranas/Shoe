@@ -1,7 +1,9 @@
 import React from "react";
 import axios from "axios";
-import "../scss/component/Login/Login.scss";
+import '../scss/component/Res/Res.scss';
 import { useNavigate } from "react-router-dom";
+import { Link, NavLink } from 'react-router-dom'
+
 export const Res = () => {
   const [userName, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -13,65 +15,90 @@ export const Res = () => {
   const navigate = useNavigate();
 
   const handleRes = async () => {
-    let item = { userName, password,confirmPassword,isAdmin,phone,address,fullName };
+    let item = {
+      userName,
+      password,
+      confirmPassword,
+      isAdmin,
+      phone,
+      address,
+      fullName,
+    };
     await axios
-      .post("https://localhost:7292/api/Account/Register", item).then((res) => console.log(res))
-      
+      .post("https://localhost:7292/api/Account/Register", item)
+      .then((res) => console.log(res));
+
     navigate("/login");
   };
   return (
-    <div>
-      <h2> Dang ki</h2>
-      <div className="user-box">
-          <input
-            type="text"
-            onChange={(e) => setUserName(e.target.value)}
-            required
-          />
-          <label>Username</label>
+    <div className="html">
+      <div className="body">
+        <div class="box">
+          <div className="form">
+            <h2 className="h2">Register</h2>
+            <div class="inputBox">
+              <input
+                type="text"
+                onChange={(e) => setUserName(e.target.value)}
+                required
+              />
+              <span>Userame</span>
+              <i></i>
+            </div>
+            <div class="inputBox">
+              <input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <span>Password</span>
+              <i></i>
+            </div>
+
+            <div class="inputBox">
+              <input
+                type="text"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+              <span>ConfirmPassword</span>
+              <i></i>
+            </div>
+            <div class="inputBox">
+              <input
+                type="text"
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
+              <span>Phone</span>
+              <i></i>
+            </div>
+            <div class="inputBox">
+              <input
+                type="text"
+                onChange={(e) => setAddress(e.target.value)}
+                required
+              />
+              <span>Address</span>
+              <i></i>
+            </div>  
+            <div class="inputBox">
+              <input
+                type="text"
+                oonChange={(e) => setFullName(e.target.value)}
+                required
+              />
+              <span>Full name</span>
+              <i></i>   
+            </div>
+            <div class="links">
+      
+            <Link className="link" to="/login" >Login</Link>
+    </div>
+            <input className="submit" type="submit" value="Register" onClick={() => handleRes()} />
+          </div>
         </div>
-        <div className="user-box">
-          <input
-            type="text"
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <label>mat khau </label>
-          <div className="user-box">
-          <input
-            type="text"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-          <label>ghi lai mat khau</label>
-        </div>
-        </div>
-        <div className="user-box">
-          <input
-            type='number'
-            onChange={(e) => setPhone(e.target.value)}
-            required
-          />
-          <label>sdt m la gi</label>
-          <div className="user-box">
-          <input
-            type="text"
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          />
-          <label>dia chi nha</label>
-        </div>
-        <div className="user-box">
-          <input
-            type="text"
-            onChange={(e) => setFullName(e.target.value)}
-            required
-          />
-          <label>ho va ten</label>
-        </div>
-        <button onClick={() => handleRes()}>Res</button>
-        </div>
+      </div>
     </div>
   );
 };
-

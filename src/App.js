@@ -2,23 +2,9 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./scss/index.scss";
 import FromButton from "./component/Admin/FromButton";
-
-import {
-  AllProduct,
-  Blog,
-  Des,
-  DetailBlog,
-  DetailReview,
-  DetailWriteReview,
-  EmptySate,
-  EmptyWishlist,
-  Homepage,
-  Login,
-  PageShop,
-  Res,
-} from "./page";
+import { AllProduct, Blog, Des, DetailBlog, DetailReview, DetailWriteReview, EmptySate, EmptyWishlist, Homepage, Login, PageShop, Res } from "./page";
 import { AdminLayout, AppLayout, AuthLayout } from "./layout";
-
+import Order from "./component/Admin/Order.jsx";
 export default function App() {
   return (
     <div>
@@ -33,20 +19,22 @@ export default function App() {
           <Route path="/AllProduct" element={<AllProduct />} />
           <Route path="/PageShop" element={<PageShop />} />
           <Route path="/PageShop/:search" element={<PageShop />} />
-          <Route
-            path="/DetailWriteReview/:name"
-            element={<DetailWriteReview />}
-          />
+          <Route path="/DetailWriteReview/:name" element={<DetailWriteReview />} />
           <Route path="/DetailReview" element={<DetailReview />} />
         </Route>
 
-        <Route path="/" element={<AuthLayout />}>
-          <Route path="login" element={<Login />} />
-          <Route path="a" element={<Res />} />
+
+        <Route path="/" element={<AuthLayout />} >
+          <Route path="/login" element={<Login />} />
+          <Route path="/a" element={<Res />} />
         </Route>
 
-        <Route path="/" element={<AdminLayout />}>
+
+        <Route path="/" element={<AdminLayout />} >
           <Route path="/From" element={<FromButton />} />
+          <Route path="/test" element={<Order />} />
+
+
         </Route>
       </Routes>
     </div>

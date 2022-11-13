@@ -1,27 +1,23 @@
 import React from "react";
 import { useEffect } from "react";
-import Modal from "../Common/Modal.js";
-import UseModal from "../Common/UseModal.js";
 import axiosApi from "../../api/axios";
-// import Modal from "../Common/Modal";
-import useModal from "../Common/UseModal";
 import "../../scss/component/Admin/FromButton.scss";
 export default function FromButton() {
-  const { isShowing, toggle } = useModal();
   const [data, setData] = React.useState([]);
   const [productId, setProductId] = React.useState("");
-  const [update, setUpdate] = React.useState({});
+
   const [item, setItem] = React.useState({
     productName: "",
     type: "",
     description: "",
     brandName: "",
-    price: 0,
+    price: 2.0,
     stock: 0,
+    size: "",
     status: 0,
     imageFile: "",
   });
-
+  // console.log(">>> kết quả: ", item);
   const getApi = async () => {
     await axiosApi
       .get("Category_Admin")
@@ -31,27 +27,20 @@ export default function FromButton() {
   useEffect(() => {
     getApi();
   }, []);
-  // Chức năng thêm/ sửa
+  // Chức năng thêm
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const checkItem = data.filter((i) => i.productId === update.productId);
 
-    if (checkItem.length > 0) {
-      try {
-        item.price = parseInt(item.price);
-        item.stock = parseInt(item.stock);
-        item.status = parseInt(item.status);
-
-        await axiosApi.put("Category_Admin", item);
-      } catch (err) {}
-    } else {
-      try {
-        item.price = parseInt(item.price);
-        item.stock = parseInt(item.stock);
-        item.status = parseInt(item.status);
-        console.log(item);
-        await axiosApi.post("Category_Admin/AddProduct", item);
-      } catch (err) {}
+    const checkItem = e.filter((item) => item.id === 1);
+    console.log(checkItem);
+    try {
+      item.price = parseInt(item.price).toFixed(1);
+      item.stock = parseInt(item.stock);
+      item.status = parseInt(item.status);
+      console.log(item);
+      await axiosApi.post("Category_Admin/AddProduct", item);
+    } catch (err) {
+      console.log("Error");
     }
   };
 
@@ -62,14 +51,15 @@ export default function FromButton() {
     setItem(newItem);
   };
 
-  // Chức năng xóa
+  // Chức năng xóa => thành công
   const deleteId = async (e) => {
-    await axiosApi.delete(`Category_Admin/${e}`).then(() => getApi());
+    setProductId(e);
+    alert("Bạn có chắc chắn muốn xóa không!");
+    await axiosApi.delete(`Category_Admin/${productId}`);
   };
 
-  //Chức năng sửa
-  const updateId = (e) => {
-    setUpdate(e);
+  // Chức năng sửa
+  const updateId = async (e) => {
     setItem({
       productName: e.productName,
       type: e.type,
@@ -77,16 +67,10 @@ export default function FromButton() {
       brandName: e.brandName,
       price: e.price,
       stock: e.stock,
+      size: e.size,
       status: e.status,
       imageFile: e.productImage,
     });
-    // console.log(e);
-  };
-
-  //  Lấy id truyền qua model
-  const handleModel = (e) => {
-    toggle(); //kích hoạt model
-    setProductId(e); // setState id
   };
 
   return (
@@ -94,17 +78,20 @@ export default function FromButton() {
       <div>
         <div className="Header_form">
           <ul>
-            <li>
+            {/* <li>
               <a className="" href="">
-                Product
+                ADDS
               </a>
             </li>
             <li>
-              <a href="">Order</a>
+              <a href="">ADMIN</a>
             </li>
+            <li>
+              <a href="">HOMEPAGE</a>
+            </li> */}
           </ul>
         </div>
-        <button className="Header">Thêm sản phẩm</button>
+        <h1 className="Header">THÊM SẢN PHẨM </h1>
         <div className="Content">
           <form className="Content_from " onSubmit={(e) => handleOnSubmit(e)}>
             <Input
@@ -149,7 +136,13 @@ export default function FromButton() {
               value={item.stock}
               onChange={(e) => handleOnChange(e)}
             />
-
+            <Input
+              className="Content_from_content_btn "
+              label="Size"
+              id="size"
+              value={item.size}
+              onChange={(e) => handleOnChange(e)}
+            />
             <label>Status</label>
             <select
               className="Content_from_content_btn "
@@ -222,10 +215,10 @@ export default function FromButton() {
                     >
                       SỬA
                     </button>
-
                     <button
+                      type="button"
                       className="Admin_remove"
-                      onClick={() => handleModel(item.productId)}
+                      onClick={() => deleteId(productId)}
                     >
                       XÓA
                     </button>
@@ -234,11 +227,6 @@ export default function FromButton() {
               ))}
             </tbody>
           </table>
-          <Modal
-            isShowing={isShowing}
-            hide={toggle}
-            deleteId={() => deleteId(productId)}
-          />
         </div>
       </div>
     </div>
