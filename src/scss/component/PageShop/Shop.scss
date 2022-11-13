@@ -1,0 +1,122 @@
+.Shop {
+  margin-top: 46px;
+  font-weight: 600;
+  padding-bottom: 26px;
+  font-family: "$font-plus";
+  &__heading {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 22px;
+  }
+
+  &__categories {
+    font-size: 14px;
+    font-weight: 600;
+
+    &-list {
+      margin-top: 12px;
+      padding-bottom: 46px;
+      border-bottom: 1px solid #878690;
+    }
+
+    &-item {
+      margin-bottom: 12px;
+    }
+
+    &-link {
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 400;
+    }
+  }
+
+  &__product {
+    display: flex;
+    &-sort {
+      margin-bottom: 40px;
+      margin-left: 92%;
+      &-name {
+        display: block;
+        position: relative;
+        font-size: 15px;
+        font-weight: 500;
+        display: flex;
+        &_p {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    &-wrapper {
+      .Shop__product-item {
+        margin-bottom: 12px;
+
+        &-img {
+          width: 100%;
+        }
+
+        &-brandname {
+          font-size: 0.9rem;
+          color: #878690;
+        }
+      }
+    }
+
+    &-info {
+      display: flex;
+      margin: 18px 0;
+      justify-content: space-between;
+      align-items: baseline;
+
+      &-name {
+        font-size: 1.1rem;
+        font-weight: 800;
+      }
+
+      &-price {
+        font-size: 0.9rem;
+        color: #878690;
+      }
+    }
+  }
+}
+.Shop__product-sort-name:hover .Menu_ul {
+  display: block;
+}
+
+.Shop__product-sort-name:hover .img {
+  display: none;
+}
+.img {
+  margin-left: 10px;
+}
+.a:hover {
+  color: red;
+}
+.Menu_ul {
+  display: none;
+  font-family: "$font-plus";
+  margin-top: 18px;
+  position: absolute;
+  width: 147px;
+  height: auto;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 4px 28px rgba(7, 20, 31, 0.06);
+  &_li {
+    margin: 15px 10px;
+    font-weight: 500;
+    font-size: 14px;
+
+    &_a {
+      color: #100d22;
+      text-decoration: none;
+      padding: 15px 10px;
+    }
+  }
+}
+.Menu_ul_li_a:hover {
+  color: rgb(141, 18, 18);
+  font-weight: 600;
+}

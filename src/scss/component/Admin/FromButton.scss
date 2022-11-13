@@ -1,0 +1,141 @@
+.Content {
+  background-color: rgb(235, 236, 237);
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  font-family: "$font-plus";
+
+  &_from {
+    margin: 40px 0 30px 20px;
+
+    &_content {
+      margin-top: 30px;
+      &_btn {
+        margin-top: 10px;
+        width: 98%;
+        height: 35px;
+      }
+    }
+
+    &_btn {
+      text-align: center;
+
+      &_1 {
+        background-color: rgb(4, 18, 14);
+        border-radius: 20px;
+        color: #fff;
+        border: none;
+        width: 20%;
+        height: 40px;
+        margin: 30px 0 30px 0;
+      }
+    }
+  }
+}
+
+.Header {
+  margin: 80px 0 30px 10%;
+  font-size: 24px;
+  font-family: "$font-plus";
+  color: rgb(235, 236, 237);
+  background-color: rgb(19, 177, 82);
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+input,
+.sl {
+  margin-top: 10px;
+  width: 98%;
+  height: 35px;
+}
+
+//-----------------------------------------table
+.Product {
+  margin-top: 80px;
+  background-color: rgb(235, 236, 237);
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  font-family: "$font-plus";
+}
+
+.header {
+  margin: 80px 0 30px 10%;
+  font-size: 35px;
+  font-family: "$font-plus";
+}
+
+thead,
+td {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  height: 65px;
+}
+
+tr {
+  text-align: center;
+}
+
+.table {
+  &_header {
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+.Admin {
+  font-family: "$font-plus";
+  &_update {
+    color: #fff;
+    background-color: green;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+  }
+  &_remove {
+    color: #fff;
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+  }
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  margin-left: 5%;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: rgb(19, 177, 82);
+}
+.Admin {
+  margin-bottom: 30%;
+}
