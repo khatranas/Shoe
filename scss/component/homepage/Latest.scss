@@ -1,0 +1,54 @@
+@import "../../global.scss";
+@import "../../var.scss";
+.Latest {
+  font-family: "$font-plus";
+  margin-top: 120px;
+  text-align: center;
+  &__item {
+    margin-right: 15px;
+  }
+
+  h3 {
+    margin-bottom: 20px;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 62px;
+    letter-spacing: 0em;
+    text-align: center;
+    font-family: anton;
+  }
+  h5 {
+    margin-bottom: 40px;
+    font-family: auto;
+    color: #878690;
+  }
+  p {
+    font-family: "$font-plus";
+    color: $mau-xam;
+    margin-top: 15px;
+  }
+  .container {
+    font-family: "$font-plus";
+    display: flex;
+    text-align: left;
+    .Lastest__user-big {
+      display: flex;
+      margin-bottom: 10px;
+      .Lastest__user-info {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+.p1 {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 740px) {
+  .Latest .container {
+    display: contents;
+  }
+  .container {
+    margin: 8px;
+  }
+}

@@ -1,0 +1,72 @@
+.BlogProduct {
+  margin-top: 80px;
+  &__desc {
+    display: flex;
+    max-width: 63%;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  &__content {
+    max-width: 45%;
+
+    &-container {
+      max-width: unset;
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+
+    &-design {
+      width: 300px;
+    }
+
+    &-img {
+      width: 334px;
+      margin-bottom: 50px;
+    }
+
+    &-header {
+      padding-top: 12px;
+      font-size: 0.8rem;
+      font-style: italic;
+      font-weight: 200;
+      color: #000;
+    }
+
+    &-title {
+      font-size: 1.2rem;
+    }
+
+    &-text {
+      line-height: 1.8rem;
+      height: 3.6rem;
+      font-size: 0.8rem;
+      color: #878690;
+    }
+
+    &-account {
+      margin-top: 90px;
+      margin-bottom: 50px;
+      padding: 16px 0;
+      display: flex;
+      align-items: center;
+
+      &-info {
+        padding-left: 12px;
+      }
+
+      &-name {
+        font-size: 1rem;
+        font-weight: 200;
+        margin: 0;
+      }
+
+      &-date {
+        margin: 0;
+        font-size: 0.8rem;
+        color: #878690;
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+.Banner {
+  display: flex;
+  align-items: center;
+  width: 1200px;
+  margin: 0 auto;
+
+  &_header {
+    &_h3 {
+      font-family: "Anton";
+      font-weight: 600;
+      font-size: 39px;
+      margin-bottom: auto
+    }
+
+    &_p {
+      color: #878690;
+    }
+
+    &_two {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &_price {
+        font-family: "Plus Jakarta Sans";
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 124.54%;
+      }
+
+      &_img {
+        margin-right: 10px;
+      }
+    }
+
+    &_des {
+      color: #878690;
+      margin: 22px 0;
+
+      &_p {
+        margin-bottom: 6%;
+        border-top-style: solid;
+        border-top-width: 1px;
+        border-top-color: rgba(0, 0, 0, 0.09);
+        padding-top: 38px;
+      }
+    }
+
+    &_p1 {
+      text-decoration-line: underline;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      color: #333;
+    }
+
+    &_btn {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+
+      p {
+        padding-right: 12px;
+      }
+    }
+
+    select {
+      margin-right: 10px;
+      padding: 2px 4px;
+      font-size: 16px;
+      font-family: 'Anton';
+
+      option {
+        font-family: 'Roboto', sans-serif;
+      }
+    }
+
+    &_button34 {
+      margin-top: 7%;
+      display: flex;
+
+      &_3 {
+        background: #100d22;
+        border-radius: 32px;
+        width: 220px;
+        height: 50px;
+        left: 1010px;
+        top: 775px;
+        border: none;
+        margin-right: 7%;
+        cursor: pointer;
+        color: #f6f6f6;
+
+        &:hover {
+          background-color: rgb(217, 131, 131);
+        }
+      }
+    }
+  }
+
+  &_img {
+    margin: 82px 10% 0 0;
+
+    &-item {
+      max-width: 290px;
+      min-width: 500px;
+      width: 100%;
+      height: 487px;
+      display: block;
+      object-fit: cover;
+    }
+  }
+}
+
+// pc
+@media only screen and (min-width: 64rem) {}
+
+//table
+@media only screen and (min-width: 46.25rem) and (max-width: 64rem) {
+  .flex-mobile {
+    flex-wrap: wrap;
+    min-width: 46.25rem;
+    max-width: 64rem;
+  }
+}
+
+/*mobile*/
+@media only screen and (max-width: 46.25rem) {
+  .flex-mobile {
+    flex-wrap: wrap;
+    max-width: 30rem;
+  }
+}
