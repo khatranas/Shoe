@@ -13,10 +13,13 @@ export const Login = () => {
     let item = { userName, password };
     await axios
       .post("https://localhost:7292/api/Account/Login", item)
-      .then((res) => localStorage.setItem("accessToken", res.data.accessToken))
+      .then((res) =>
+        localStorage.setItem("accessToken", JSON.stringify(res.data))
+      )
       .catch((err) => console(err));
     navigate("/");
   };
+
   return (
     <div className="body">
       <div className="boxl">

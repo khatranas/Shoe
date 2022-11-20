@@ -19,6 +19,8 @@ import Order from "./component/Admin/Order.jsx";
 import "./scss/index.scss";
 
 export default function App() {
+  const token = localStorage.getItem("accessToken");
+
   return (
     <div>
       <Routes>

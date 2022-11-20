@@ -17,6 +17,7 @@ export default function Heder() {
   };
 
   const checkUser = localStorage.getItem("accessToken");
+
   return (
     <div>
       <div className="Heder">
@@ -26,6 +27,7 @@ export default function Heder() {
         <div className="menu-mobile-icon hide-on-pc">
           <img className="menu-mobile-icon-1" src={Nabar} alt="" />
         </div>
+
         <div className="Heder_list hide-on-mobile">
           <NavLink className="Heder_list_item" to="/">
             Home
@@ -36,9 +38,11 @@ export default function Heder() {
           <NavLink className="Heder_list_item" to="/Blog">
             Blog
           </NavLink>
-          <NavLink className="Heder_list_item" to="Admin">
-            Admin
-          </NavLink>
+          {checkUser.role && (
+            <NavLink className="Heder_list_item" to="Admin">
+              Admin
+            </NavLink>
+          )}
         </div>
         <div className="Heder_list2 hide-on-mobile">
           <Link
@@ -81,6 +85,17 @@ export default function Heder() {
               </Link>
             </p>
           )}
+          {/* {checkUser ? (
+            "Logged"
+          ) : (
+            <p>
+              <Link to="/login" className="Heder_list2_a1">
+                {" "}
+                Log in
+              </Link>
+            </p>
+            
+          )} */}
           <NavLink className="Heder_list_item" to="/Carts">
             <img className="Heder_list2_img" src={Vector} alt="" />
             {cart.length > 0 ? <span>{cart.length}</span> : ""}
